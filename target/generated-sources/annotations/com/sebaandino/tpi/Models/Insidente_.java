@@ -1,0 +1,20 @@
+package com.sebaandino.tpi.Models;
+
+import java.time.LocalDateTime;
+import javax.annotation.processing.Generated;
+import javax.persistence.metamodel.SingularAttribute;
+import javax.persistence.metamodel.StaticMetamodel;
+
+@Generated(value="org.eclipse.persistence.internal.jpa.modelgen.CanonicalModelProcessor", date="2023-11-20T12:47:12", comments="EclipseLink-2.7.12.v20230209-rNA")
+@StaticMetamodel(Insidente.class)
+public class Insidente_ { 
+
+    public static volatile SingularAttribute<Insidente, Boolean> estado;
+    public static volatile SingularAttribute<Insidente, String> descInsidente;
+    public static volatile SingularAttribute<Insidente, Double> costo;
+    public static volatile SingularAttribute<Insidente, Integer> dnicliente;
+    public static volatile SingularAttribute<Insidente, LocalDateTime> fechaInsidente;
+    public static volatile SingularAttribute<Insidente, Integer> idTecnico;
+    public static volatile SingularAttribute<Insidente, Long> id_insidente;
+
+}
