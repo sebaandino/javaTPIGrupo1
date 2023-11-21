@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -29,8 +31,13 @@ public class Insidente implements Serializable {
     @Column(name = "fecha_incidente")
     private LocalDateTime fechaInsidente;
     private boolean estado;
-    private int dnicliente;
-    private int idTecnico;
+    
+    @ManyToOne
+    @JoinColumn(name = "dni_cliente_insidente")
+    private Cliente dniCliente;
+    @ManyToOne
+    @JoinColumn(name = "id_tecnico_insidente")
+    private Tecnico idTecnico;
   
    
 }

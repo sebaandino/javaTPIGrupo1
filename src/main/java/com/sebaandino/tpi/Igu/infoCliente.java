@@ -1,16 +1,25 @@
 
 package com.sebaandino.tpi.Igu;
 
+import com.sebaandino.tpi.Models.Cliente;
 import com.sebaandino.tpi.Models.Controladora;
+import com.sebaandino.tpi.Models.Insidente;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
 
 
-public class infoCliente extends javax.swing.JFrame {
+public class InfoCliente extends javax.swing.JFrame {
 
     Controladora control;
    
-    public infoCliente() {
+    int dniCliente;
+    
+    public InfoCliente(int dniCliente) {
         initComponents();
+        this.dniCliente = dniCliente;
         control = new Controladora();
+
+
     }
 
    
@@ -31,11 +40,27 @@ public class infoCliente extends javax.swing.JFrame {
         btnAtras = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel1.setText("Informacion del Cliente:");
 
         jScrollPane1.setViewportView(tblInsidentes);
+
+        txtDni.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        txtDni.setEnabled(false);
+        txtDni.setRequestFocusEnabled(false);
+
+        txtApellido.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        txtApellido.setEnabled(false);
+
+        txtNombre.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        txtNombre.setEnabled(false);
+        txtNombre.setFocusable(false);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel2.setText("Dni:");
@@ -120,6 +145,57 @@ public class infoCliente extends javax.swing.JFrame {
     private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
         this.dispose();
     }//GEN-LAST:event_btnAtrasActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+         
+        //Traer al cliente que se busca
+        
+        Cliente cliente = control.traeCliente(dniCliente);
+        
+        //Cargar los datos en los txt
+        
+        txtDni.setText(String.valueOf(cliente.getDni()));
+        txtNombre.setText(cliente.getNombre());
+        txtApellido.setText(cliente.getApellido());
+        
+        //Cargar tabla con los insidentes vinculados al cliente buscado por dni
+        
+       
+                cargarTabla();
+           
+        
+    }//GEN-LAST:event_formWindowOpened
+
+     private void cargarTabla() {
+        DefaultTableModel modeloTabla = new DefaultTableModel(){
+            public boolean isCellEditable(int column,int row){
+                return false;
+            }
+        };
+        
+        
+        String titulos[] = {"Id","Descripcion","Costo","Fecha Alta","Tecnico"};
+        modeloTabla.setColumnIdentifiers(titulos);
+        
+        List<Insidente> listaInsidetesFiltrada = control.traerInsidentes(dniCliente);
+        
+        if(listaInsidetesFiltrada != null){
+            for(Insidente insidente : listaInsidetesFiltrada){
+                Object[] obj = 
+                {insidente.getId_insidente(),
+                    insidente.getDescInsidente(),
+                    insidente.getCosto(),
+                    insidente.getFechaInsidente(), 
+                    insidente.getIdTecnico().getNombre() + " " + insidente.getIdTecnico().getApellido(),
+                };
+                        
+                modeloTabla.addRow(obj);
+            }
+            
+            tblInsidentes.setModel(modeloTabla);
+        }
+    }
+
 
    
 

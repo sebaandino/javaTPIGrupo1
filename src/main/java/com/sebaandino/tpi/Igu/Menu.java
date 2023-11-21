@@ -254,7 +254,12 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAltaTecnicoActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        // TODO add your handling code here:
+       
+        int dniCliente = Integer.parseInt(txtDni.getText());
+        
+       InfoCliente infoCliente = new InfoCliente(dniCliente);
+       infoCliente.setVisible(true);
+       infoCliente.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnAltaInsidenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAltaInsidenteActionPerformed

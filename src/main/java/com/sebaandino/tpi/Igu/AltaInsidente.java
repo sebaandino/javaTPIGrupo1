@@ -1,7 +1,10 @@
 
 package com.sebaandino.tpi.Igu;
 
+import com.sebaandino.tpi.Models.Cliente;
 import com.sebaandino.tpi.Models.Controladora;
+import com.sebaandino.tpi.Models.Tecnico;
+import com.sebaandino.tpi.Utils.JOptionPaneUtil;
 
 
 public class AltaInsidente extends javax.swing.JFrame {
@@ -178,10 +181,23 @@ public class AltaInsidente extends javax.swing.JFrame {
 
         String descripcion = txtDescripcion.getText();
         double costo = Double.parseDouble(txtCosto.getText());
-        int dni = Integer.parseInt(txtDni.getText());
-        int id = Integer.parseInt(txtId.getText());
         
-        control.altaInsidente(descripcion,costo,dni,id);
+        Cliente cliente = control.traeCliente(Integer.parseInt(txtDni.getText()));
+        
+        if(cliente == null){
+            JOptionPaneUtil.mostrarMensaje("El cliente no existe en la base de datos", JOptionPaneUtil.TipoMensaje.ERROR);
+            return;
+        }
+        
+        Tecnico tecnico = control.traerTecnico(Long.valueOf(txtId.getText()));
+        
+        if(tecnico == null){
+            JOptionPaneUtil.mostrarMensaje("El tecnico no existe en la base de datos", JOptionPaneUtil.TipoMensaje.ERROR);
+            return;
+        }
+       
+        control.altaInsidente(descripcion,costo,cliente,tecnico);
+        JOptionPaneUtil.mostrarMensaje("Alta Exitosa!", JOptionPaneUtil.TipoMensaje.INFORMATIVO);
         
         
         

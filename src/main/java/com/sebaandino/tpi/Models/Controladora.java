@@ -4,7 +4,6 @@ package com.sebaandino.tpi.Models;
 import com.sebaandino.tpi.Persistencia.ControladoraPersistencia;
 import java.time.LocalDateTime;
 import java.util.List;
-import org.hibernate.grammars.hql.HqlParser;
 
 
 
@@ -43,7 +42,7 @@ public class Controladora {
         return controlPersis.trarTecnicos();
     }
 
-    public void altaInsidente(String descripcion, double costo, int dni, int id) {
+    public void altaInsidente(String descripcion, double costo, Cliente cliente, Tecnico tecnico ){
         
         Insidente insidente = new Insidente();
         LocalDateTime fechaActual = LocalDateTime.now();
@@ -53,12 +52,34 @@ public class Controladora {
         insidente.setCosto(costo);
         insidente.setEstado(false);
         insidente.setFechaInsidente(fechaActual);
-        insidente.setDnicliente(dni);
-        insidente.setIdTecnico(id);
-        
-        
+        insidente.setIdTecnico(tecnico);
+        insidente.setDniCliente(cliente);
         
         controlPersis.altaInsidente(insidente);
+    }
+
+    public void EliminarTecnico(Long idTecnico) {
+        
+        controlPersis.EliminarTecnico(idTecnico);
+    }
+
+    public Cliente traeCliente(int dniCliente) {
+        return controlPersis.traerCliente(dniCliente);
+    }
+
+    public List<Insidente> traerInsidentes(int dniCliente) {
+        
+        List<Insidente> listaInsidentes = controlPersis.traerInsidentes();
+        
+        List<Insidente> listaInsidentesFiltrada = listaInsidentes.stream()
+            .filter(insidente -> insidente.getDniCliente().getDni()== dniCliente).toList();
+        
+        return listaInsidentesFiltrada;
+        
+    }
+
+    public Tecnico traerTecnico(Long id) {
+       return controlPersis.traerTecnico(id);
     }
     
 }

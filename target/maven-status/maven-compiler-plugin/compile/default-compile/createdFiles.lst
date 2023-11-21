@@ -3,6 +3,8 @@ com\sebaandino\tpi\Models\Cliente_.class
 com\sebaandino\tpi\Igu\AltaCliente$4.class
 com\sebaandino\tpi\Persistencia\exceptions\PreexistingEntityException.class
 com\sebaandino\tpi\Igu\Menu$8.class
+com\sebaandino\tpi\Igu\InfoCliente$2.class
+com\sebaandino\tpi\Igu\ListaTecnicos$4.class
 com\sebaandino\tpi\Models\Insidente.class
 com\sebaandino\tpi\Persistencia\exceptions\IllegalOrphanException.class
 com\sebaandino\tpi\Igu\Menu$2.class
@@ -10,6 +12,7 @@ com\sebaandino\tpi\Igu\AltaInsidente$2.class
 com\sebaandino\tpi\Igu\Menu$5.class
 com\sebaandino\tpi\Igu\AltaCliente$1.class
 com\sebaandino\tpi\Igu\AltaTecnico$1.class
+com\sebaandino\tpi\Igu\InfoCliente.class
 com\sebaandino\tpi\Igu\Menu$4.class
 com\sebaandino\tpi\Igu\ListaTecnicos$1.class
 com\sebaandino\tpi\Igu\AltaCliente$5.class
@@ -29,6 +32,7 @@ com\sebaandino\tpi\Igu\AltaTecnico.class
 com\sebaandino\tpi\Igu\ListaTecnicos$2.class
 com\sebaandino\tpi\Igu\ListaTecnicos.class
 com\sebaandino\tpi\Igu\Menu$3.class
+com\sebaandino\tpi\Igu\InfoCliente$1.class
 com\sebaandino\tpi\Igu\Menu$7.class
 com\sebaandino\tpi\Models\Controladora.class
 com\sebaandino\tpi\Models\Insidente_.class
@@ -51,3 +55,4 @@ com\sebaandino\tpi\Utils\JOptionPaneUtil.class
 com\sebaandino\tpi\Igu\Menu$6.class
 com\sebaandino\tpi\Persistencia\exceptions\NonexistentEntityException.class
 com\sebaandino\tpi\Igu\AltaInsidente$3.class
+com\sebaandino\tpi\Igu\InfoCliente$3.class
