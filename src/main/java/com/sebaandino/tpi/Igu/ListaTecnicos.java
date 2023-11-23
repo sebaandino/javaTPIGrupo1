@@ -147,7 +147,7 @@ public class ListaTecnicos extends javax.swing.JFrame {
         
         if(listaTecnicos != null){
             for(Tecnico tecnico : listaTecnicos){
-                Object[] obj = {tecnico.getIdTecnico(),tecnico.getNombre(),tecnico.getApellido(),tecnico.getCategoria()};
+                Object[] obj = {tecnico.getIdTecnico(),tecnico.getNombre(),tecnico.getApellido(),tecnico.getCategoria().getTipoCategoria()};
                 modeloTabla.addRow(obj);
             }
             

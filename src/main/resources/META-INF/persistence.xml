@@ -5,6 +5,7 @@
     <class>com.sebaandino.tpi.Models.Cliente</class>
     <class>com.sebaandino.tpi.Models.Insidente</class>
     <class>com.sebaandino.tpi.Models.Tecnico</class>
+    <class>com.sebaandino.tpi.Models.Categoria</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/tpi?zeroDateTimeBehavior=CONVERT_TO_NULL"/>
       <property name="javax.persistence.jdbc.user" value="root"/>
