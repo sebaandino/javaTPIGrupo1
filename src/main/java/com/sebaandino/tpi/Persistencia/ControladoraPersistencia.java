@@ -1,5 +1,6 @@
 package com.sebaandino.tpi.Persistencia;
 
+import com.sebaandino.tpi.Models.Categoria;
 import com.sebaandino.tpi.Models.Cliente;
 import com.sebaandino.tpi.Models.Insidente;
 import com.sebaandino.tpi.Models.Tecnico;
@@ -13,6 +14,7 @@ public class ControladoraPersistencia {
     ClienteJpaController clienteJpa = new ClienteJpaController();
     TecnicoJpaController tecnicoJpa = new TecnicoJpaController();
     InsidenteJpaController insidenteJpa = new InsidenteJpaController();
+    CategoriaJpaController catJpa = new CategoriaJpaController();
 
     public void altaTecnico(Tecnico tecnico) {
         tecnicoJpa.create(tecnico);
@@ -54,5 +56,18 @@ public class ControladoraPersistencia {
     public Tecnico traerTecnico(Long id) {
         return tecnicoJpa.findTecnico(id);
     }
+
+    public Categoria traerCategoria(Long idCategoria) {
+        return catJpa.findCategoria(idCategoria);
+    }
+
+    public void altaCategoria(Categoria categoria) {
+        catJpa.create(categoria);
+    }
+
+    public List<Categoria> traerCategorias() {
+        return catJpa.findCategoriaEntities();
+    }
+    
     
 }

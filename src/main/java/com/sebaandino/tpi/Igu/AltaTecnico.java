@@ -1,11 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package com.sebaandino.tpi.Igu;
 
+import com.sebaandino.tpi.Models.Categoria;
 import com.sebaandino.tpi.Models.Controladora;
 import com.sebaandino.tpi.Utils.JOptionPaneUtil;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
 
 public class AltaTecnico extends javax.swing.JFrame { 
     public AltaTecnico() {
@@ -25,13 +25,21 @@ public class AltaTecnico extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         txtNombre = new javax.swing.JTextField();
         txtApellido = new javax.swing.JTextField();
-        btnAlta = new javax.swing.JButton();
         btnLimpiar = new javax.swing.JButton();
         btnAtras = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         txtCategoria = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblCategorias = new javax.swing.JTable();
+        jLabel5 = new javax.swing.JLabel();
+        btnAlta = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel1.setText("Alta Tecnico");
@@ -45,14 +53,6 @@ public class AltaTecnico extends javax.swing.JFrame {
         txtApellido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtApellidoActionPerformed(evt);
-            }
-        });
-
-        btnAlta.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnAlta.setText("Dar de alta");
-        btnAlta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAltaActionPerformed(evt);
             }
         });
 
@@ -72,11 +72,24 @@ public class AltaTecnico extends javax.swing.JFrame {
         });
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel4.setText("Categoria:");
+        jLabel4.setText("ID Categoria:");
 
         txtCategoria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtCategoriaActionPerformed(evt);
+            }
+        });
+
+        jScrollPane1.setViewportView(tblCategorias);
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel5.setText("Lista de categorias:");
+
+        btnAlta.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnAlta.setText("Dar de Alta");
+        btnAlta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAltaActionPerformed(evt);
             }
         });
 
@@ -90,10 +103,10 @@ public class AltaTecnico extends javax.swing.JFrame {
                         .addGap(75, 75, 75)
                         .addComponent(jLabel1))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                             .addGap(56, 56, 56)
                             .addComponent(btnLimpiar)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGap(52, 52, 52)
                             .addComponent(btnAlta))
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addGap(29, 29, 29)
@@ -108,8 +121,12 @@ public class AltaTecnico extends javax.swing.JFrame {
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txtCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
-                .addContainerGap(49, Short.MAX_VALUE))
+                                        .addComponent(txtCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
+                .addContainerGap())
         );
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {txtApellido, txtNombre});
@@ -131,13 +148,19 @@ public class AltaTecnico extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtCategoria))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnLimpiar)
                     .addComponent(btnAlta))
                 .addGap(59, 59, 59)
                 .addComponent(btnAtras)
                 .addGap(21, 21, 21))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(17, Short.MAX_VALUE)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabel2, jLabel3, txtApellido, txtNombre});
@@ -146,11 +169,15 @@ public class AltaTecnico extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -169,13 +196,28 @@ public class AltaTecnico extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnAtrasActionPerformed
 
+    private void txtCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCategoriaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCategoriaActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        
+        cargarTabla(); 
+    }//GEN-LAST:event_formWindowOpened
+
     private void btnAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAltaActionPerformed
         
              String nombre = txtNombre.getText();
              String apellido = txtApellido.getText();
-             String categoria = txtCategoria.getText();
+             Long idCategoria = Long.valueOf(txtCategoria.getText());
              
-      //verifico que los campos no esten vacios
+             //si la categoria no existe en la BD
+             Categoria categoria = control.traerCategoria(idCategoria);
+             if(categoria == null){
+                 JOptionPaneUtil.mostrarMensaje("La categoria no existe", JOptionPaneUtil.TipoMensaje.ERROR);
+                 return;
+             }
+             //verifico que los campos no esten vacios
       if (nombre.isEmpty() || apellido.isEmpty()) {
           JOptionPaneUtil.mostrarMensaje("Por favor, completa ambos campos de nombre y apellido", JOptionPaneUtil.TipoMensaje.ERROR);
         return;
@@ -198,14 +240,34 @@ public class AltaTecnico extends javax.swing.JFrame {
     }
     }//GEN-LAST:event_btnAltaActionPerformed
 
-    private void txtCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCategoriaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCategoriaActionPerformed
-
     //exprision regular
     private boolean esSoloTexto(String texto) {
     return texto.matches("^[a-z A-Z áéíóúÁÉÍÓÚñÑ]+$");
 }
+    
+     private void cargarTabla() {
+        DefaultTableModel modeloTabla = new DefaultTableModel(){
+            public boolean isCellEditable(int column,int row){
+                return false;
+            }
+        };
+     
+        
+        
+        String titulos[] = {"Id Categoria","Especialidad"};
+        modeloTabla.setColumnIdentifiers(titulos);
+        
+        List<Categoria> listaCategorias = control.traerCaterorias();
+        
+        if(listaCategorias != null){
+            for(Categoria categoria : listaCategorias){
+                Object[] obj = {categoria.getId(),categoria.getTipoCategoria()};
+                modeloTabla.addRow(obj);
+            }
+            
+            tblCategorias.setModel(modeloTabla);
+        }
+     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlta;
@@ -215,9 +277,13 @@ public class AltaTecnico extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tblCategorias;
     private javax.swing.JTextField txtApellido;
     private javax.swing.JTextField txtCategoria;
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }
+

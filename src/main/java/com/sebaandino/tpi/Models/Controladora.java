@@ -11,7 +11,7 @@ public class Controladora {
     
     ControladoraPersistencia controlPersis = new ControladoraPersistencia();
 
-    public boolean altaTecnico(String nombre, String apellido,String categoria) {
+    public boolean altaTecnico(String nombre, String apellido,Categoria categoria) {
         
         Tecnico tecnico = new Tecnico();
         
@@ -80,6 +80,21 @@ public class Controladora {
 
     public Tecnico traerTecnico(Long id) {
        return controlPersis.traerTecnico(id);
+    }
+
+    public Categoria traerCategoria(Long idCategoria) {
+        return controlPersis.traerCategoria(idCategoria);
+    }
+
+    public boolean altaCategoria(String tipoCategoria) {
+        Categoria categoria = new Categoria();
+        categoria.setTipoCategoria(tipoCategoria);
+        controlPersis.altaCategoria(categoria);
+        return true;
+    }
+
+    public List<Categoria> traerCaterorias() {
+        return controlPersis.traerCategorias();
     }
     
 }
