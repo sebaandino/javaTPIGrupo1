@@ -11,7 +11,7 @@ public class Controladora {
     
     ControladoraPersistencia controlPersis = new ControladoraPersistencia();
 
-    public boolean altaTecnico(String nombre, String apellido,Categoria categoria) {
+    public boolean altaTecnico(String nombre, String apellido, Categoria categoria) {
         
         Tecnico tecnico = new Tecnico();
         

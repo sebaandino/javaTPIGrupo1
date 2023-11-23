@@ -9,6 +9,7 @@ com\sebaandino\tpi\Models\Insidente.class
 com\sebaandino\tpi\Igu\EditarCliente$1.class
 com\sebaandino\tpi\Persistencia\exceptions\IllegalOrphanException.class
 com\sebaandino\tpi\Igu\Menu$2.class
+com\sebaandino\tpi\Models\Categoria.class
 com\sebaandino\tpi\Igu\AltaInsidente$2.class
 com\sebaandino\tpi\Igu\Menu$5.class
 com\sebaandino\tpi\Igu\AltaCliente$1.class
@@ -16,6 +17,7 @@ com\sebaandino\tpi\Igu\AltaTecnico$1.class
 com\sebaandino\tpi\Igu\InfoCliente.class
 com\sebaandino\tpi\Igu\Menu$4.class
 com\sebaandino\tpi\Igu\ListaTecnicos$1.class
+com\sebaandino\tpi\Igu\AltaCategoria$3.class
 com\sebaandino\tpi\Igu\AltaCliente$5.class
 com\sebaandino\tpi\Igu\AltaInsidente$1.class
 com\sebaandino\tpi\Igu\Menu$1.class
@@ -38,13 +40,17 @@ com\sebaandino\tpi\Igu\Menu$3.class
 com\sebaandino\tpi\Igu\InfoCliente$1.class
 com\sebaandino\tpi\Igu\Menu$7.class
 com\sebaandino\tpi\Models\Controladora.class
+com\sebaandino\tpi\Igu\AltaCategoria$1.class
 com\sebaandino\tpi\Models\Insidente_.class
 com\sebaandino\tpi\Models\Tecnico_.class
 com\sebaandino\tpi\Dto\ClienteDto.class
 com\sebaandino\tpi\Igu\EditarCliente$3.class
 com\sebaandino\tpi\Igu\ListaClientes$2.class
+com\sebaandino\tpi\Igu\AltaCategoria.class
 com\sebaandino\tpi\Igu\ListaClientes$4.class
 com\sebaandino\tpi\Igu\Menu.class
+com\sebaandino\tpi\Igu\Menu$9.class
+com\sebaandino\tpi\Persistencia\CategoriaJpaController.class
 com\sebaandino\tpi\Igu\AltaCliente$3.class
 com\sebaandino\tpi\Igu\ListaTecnicos$3.class
 com\sebaandino\tpi\Utils\JOptionPaneUtil$1.class
@@ -54,9 +60,11 @@ com\sebaandino\tpi\Utils\JOptionPaneUtil$TipoMensaje.class
 com\sebaandino\tpi\Igu\ListaClientes$1.class
 com\sebaandino\tpi\Persistencia\ControladoraPersistencia.class
 com\sebaandino\tpi\Models\Tecnico.class
+com\sebaandino\tpi\Models\Categoria_.class
 com\sebaandino\tpi\Models\Cliente.class
 com\sebaandino\tpi\Igu\EditarCliente.class
 com\sebaandino\tpi\Utils\JOptionPaneUtil.class
+com\sebaandino\tpi\Igu\AltaCategoria$2.class
 com\sebaandino\tpi\Igu\Menu$6.class
 com\sebaandino\tpi\Persistencia\exceptions\NonexistentEntityException.class
 com\sebaandino\tpi\Igu\AltaInsidente$3.class

@@ -6,6 +6,7 @@ package com.sebaandino.tpi.Igu;
 
 import com.sebaandino.tpi.Models.Controladora;
 import com.sebaandino.tpi.Utils.JOptionPaneUtil;
+import com.sebaandino.tpi.Models.Categoria;
 
 public class AltaTecnico extends javax.swing.JFrame { 
     public AltaTecnico() {
@@ -174,7 +175,10 @@ public class AltaTecnico extends javax.swing.JFrame {
         
              String nombre = txtNombre.getText();
              String apellido = txtApellido.getText();
-             String categoria = txtCategoria.getText();
+             Categoria categoria = new Categoria();
+             categoria.setId(Long.parseLong(txtCategoria.getText()));
+             
+             
              
         //verifico que los campos no esten vacios
         if (nombre.isEmpty() || apellido.isEmpty()) {
@@ -189,7 +193,7 @@ public class AltaTecnico extends javax.swing.JFrame {
         }
 
         //si control.altaTecnico es exitoso devuelve un true,por lo tanto se muestra el mensaje de alta
-        if (control.altaTecnico(nombre, apellido,categoria )) {
+        if (control.altaTecnico(nombre, apellido, categoria )) {
             JOptionPaneUtil.mostrarMensaje("Tecnico dado de alta!!!", JOptionPaneUtil.TipoMensaje.INFORMATIVO);
             txtNombre.setText("");
             txtApellido.setText("");
