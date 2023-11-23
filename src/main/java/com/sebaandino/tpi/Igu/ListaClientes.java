@@ -125,11 +125,8 @@ public class ListaClientes extends javax.swing.JFrame {
         if(tblClientes.getRowCount() > 0 ){
             //si no hay ninguna fila seleccionada
             if(tblClientes.getSelectedRow() != -1){
-
                 int idCliente = (int) tblClientes.getValueAt(tblClientes.getSelectedRow(), 0);
-
                 control.eliminarCliente(idCliente);
-
                 cargarTabla();
             }
         }

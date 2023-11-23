@@ -176,32 +176,33 @@ public class AltaCliente extends javax.swing.JFrame {
         String nombre = txtNombre.getText();
         String apellido = txtApellido.getText();
         int dni = Integer.parseInt(txtDni.getText());
+        if(control.traeCliente(dni)==null){
+            if (nombre.isEmpty() || apellido.isEmpty() ) {
+                JOptionPaneUtil.mostrarMensaje("Por favor, completar todos los campos", JOptionPaneUtil.TipoMensaje.ERROR);
+            }
 
-        if (nombre.isEmpty() || apellido.isEmpty() ) {
-            JOptionPaneUtil.mostrarMensaje("Por favor, completa todos los campos", JOptionPaneUtil.TipoMensaje.ERROR);
-        }
+            if (!esSoloTexto(nombre) || !esSoloTexto(apellido)) {
+                JOptionPaneUtil.mostrarMensaje("Por favor, ingresa solo letras en los campos de nombre y apellido", JOptionPaneUtil.TipoMensaje.ERROR);
+            }
 
-        if (!esSoloTexto(nombre) || !esSoloTexto(apellido)) {
-            JOptionPaneUtil.mostrarMensaje("Por favor, ingresa solo letras en los campos de nombre y apellido", JOptionPaneUtil.TipoMensaje.ERROR);
-        }
-        
-        if (dni<0) {
-            JOptionPaneUtil.mostrarMensaje("DNI invalido", JOptionPaneUtil.TipoMensaje.ERROR); 
-        }
-        
-        //puse un try-catch block pq NetBeans marcaba error
-        try {
-            if (control.altaCliente(nombre, apellido, dni )) {
-                JOptionPaneUtil.mostrarMensaje("Cliente dado de alta!!!", JOptionPaneUtil.TipoMensaje.INFORMATIVO);
-                txtNombre.setText("");
-                txtApellido.setText("");
-                txtDni.setText("");
-            } else {
-                JOptionPaneUtil.mostrarMensaje("Error al dar de alta al técnico", JOptionPaneUtil.TipoMensaje.ERROR);
-            }   
-        } catch (Exception ex) {
-            Logger.getLogger(AltaCliente.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            if (dni<0) {
+                JOptionPaneUtil.mostrarMensaje("DNI invalido", JOptionPaneUtil.TipoMensaje.ERROR); 
+            }
+
+            //puse un try-catch block pq NetBeans marcaba error
+            try {
+                if (control.altaCliente(nombre, apellido, dni )) {
+                    JOptionPaneUtil.mostrarMensaje("Cliente dado de alta!!!", JOptionPaneUtil.TipoMensaje.INFORMATIVO);
+                    txtNombre.setText("");
+                    txtApellido.setText("");
+                    txtDni.setText("");
+                } else {
+                    JOptionPaneUtil.mostrarMensaje("Error al dar de alta al Cliente", JOptionPaneUtil.TipoMensaje.ERROR);
+                }   
+            } catch (Exception ex) {
+                Logger.getLogger(AltaCliente.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }else JOptionPaneUtil.mostrarMensaje("El cliente ya existe", JOptionPaneUtil.TipoMensaje.ERROR);
        
     }//GEN-LAST:event_btnAltaActionPerformed
     //exprision regular
