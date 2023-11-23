@@ -6,6 +6,7 @@ com\sebaandino\tpi\Igu\Menu$8.class
 com\sebaandino\tpi\Igu\InfoCliente$2.class
 com\sebaandino\tpi\Igu\ListaTecnicos$4.class
 com\sebaandino\tpi\Models\Insidente.class
+com\sebaandino\tpi\Igu\EditarCliente$1.class
 com\sebaandino\tpi\Persistencia\exceptions\IllegalOrphanException.class
 com\sebaandino\tpi\Igu\Menu$2.class
 com\sebaandino\tpi\Igu\AltaInsidente$2.class
@@ -18,6 +19,7 @@ com\sebaandino\tpi\Igu\ListaTecnicos$1.class
 com\sebaandino\tpi\Igu\AltaCliente$5.class
 com\sebaandino\tpi\Igu\AltaInsidente$1.class
 com\sebaandino\tpi\Igu\Menu$1.class
+com\sebaandino\tpi\Igu\EditarCliente$2.class
 com\sebaandino\tpi\Igu\ListaClientes.class
 com\sebaandino\tpi\Persistencia\InsidenteJpaController.class
 com\sebaandino\tpi\Igu\AltaCliente$2.class
@@ -27,6 +29,7 @@ com\sebaandino\tpi\Persistencia\TecnicoJpaController.class
 com\sebaandino\tpi\Igu\AltaTecnico$5.class
 com\sebaandino\tpi\Igu\ListaClientes$3.class
 com\sebaandino\tpi\Igu\AltaCliente.class
+com\sebaandino\tpi\Igu\ListaClientes$5.class
 com\sebaandino\tpi\Igu\AltaInsidente.class
 com\sebaandino\tpi\Igu\AltaTecnico.class
 com\sebaandino\tpi\Igu\ListaTecnicos$2.class
@@ -36,10 +39,11 @@ com\sebaandino\tpi\Igu\InfoCliente$1.class
 com\sebaandino\tpi\Igu\Menu$7.class
 com\sebaandino\tpi\Models\Controladora.class
 com\sebaandino\tpi\Models\Insidente_.class
-com\sebaandino\tpi\Igu\AltaCliente$6.class
 com\sebaandino\tpi\Models\Tecnico_.class
 com\sebaandino\tpi\Dto\ClienteDto.class
+com\sebaandino\tpi\Igu\EditarCliente$3.class
 com\sebaandino\tpi\Igu\ListaClientes$2.class
+com\sebaandino\tpi\Igu\ListaClientes$4.class
 com\sebaandino\tpi\Igu\Menu.class
 com\sebaandino\tpi\Igu\AltaCliente$3.class
 com\sebaandino\tpi\Igu\ListaTecnicos$3.class
@@ -51,6 +55,7 @@ com\sebaandino\tpi\Igu\ListaClientes$1.class
 com\sebaandino\tpi\Persistencia\ControladoraPersistencia.class
 com\sebaandino\tpi\Models\Tecnico.class
 com\sebaandino\tpi\Models\Cliente.class
+com\sebaandino\tpi\Igu\EditarCliente.class
 com\sebaandino\tpi\Utils\JOptionPaneUtil.class
 com\sebaandino\tpi\Igu\Menu$6.class
 com\sebaandino\tpi\Persistencia\exceptions\NonexistentEntityException.class

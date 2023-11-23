@@ -163,6 +163,7 @@ public class AltaTecnico extends javax.swing.JFrame {
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
         txtNombre.setText("");
         txtApellido.setText("");
+        txtCategoria.setText("");
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
     private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
@@ -175,27 +176,27 @@ public class AltaTecnico extends javax.swing.JFrame {
              String apellido = txtApellido.getText();
              String categoria = txtCategoria.getText();
              
-      //verifico que los campos no esten vacios
-      if (nombre.isEmpty() || apellido.isEmpty()) {
-          JOptionPaneUtil.mostrarMensaje("Por favor, completa ambos campos de nombre y apellido", JOptionPaneUtil.TipoMensaje.ERROR);
-        return;
-    }
+        //verifico que los campos no esten vacios
+        if (nombre.isEmpty() || apellido.isEmpty()) {
+            JOptionPaneUtil.mostrarMensaje("Por favor, completa ambos campos de nombre y apellido", JOptionPaneUtil.TipoMensaje.ERROR);
+            return;
+        }
 
-    //verifico que no se hayan ingresado numeros 
-    if (!esSoloTexto(nombre) || !esSoloTexto(apellido)) {
-        JOptionPaneUtil.mostrarMensaje("Por favor, ingresa solo letras en los campos de nombre y apellido", JOptionPaneUtil.TipoMensaje.ERROR);
-        return;
-    }
-    
-    //si control.altaTecnico es exitoso devuelve un true,por lo tanto se muestra el mensaje de alta
-    if (control.altaTecnico(nombre, apellido,categoria )) {
-        JOptionPaneUtil.mostrarMensaje("Tecnico dado de alta!!!", JOptionPaneUtil.TipoMensaje.INFORMATIVO);
-        txtNombre.setText("");
-        txtApellido.setText("");
-        txtCategoria.setText("");
-   } else {
-        JOptionPaneUtil.mostrarMensaje("Error al dar de alta al técnico", JOptionPaneUtil.TipoMensaje.ERROR);
-    }
+        //verifico que no se hayan ingresado numeros 
+        if (!esSoloTexto(nombre) || !esSoloTexto(apellido)) {
+            JOptionPaneUtil.mostrarMensaje("Por favor, ingresa solo letras en los campos de nombre y apellido", JOptionPaneUtil.TipoMensaje.ERROR);
+            return;
+        }
+
+        //si control.altaTecnico es exitoso devuelve un true,por lo tanto se muestra el mensaje de alta
+        if (control.altaTecnico(nombre, apellido,categoria )) {
+            JOptionPaneUtil.mostrarMensaje("Tecnico dado de alta!!!", JOptionPaneUtil.TipoMensaje.INFORMATIVO);
+            txtNombre.setText("");
+            txtApellido.setText("");
+            txtCategoria.setText("");
+        } else {
+            JOptionPaneUtil.mostrarMensaje("Error al dar de alta al técnico", JOptionPaneUtil.TipoMensaje.ERROR);
+        }
     }//GEN-LAST:event_btnAltaActionPerformed
 
     private void txtCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCategoriaActionPerformed
@@ -204,8 +205,8 @@ public class AltaTecnico extends javax.swing.JFrame {
 
     //exprision regular
     private boolean esSoloTexto(String texto) {
-    return texto.matches("^[a-z A-Z áéíóúÁÉÍÓÚñÑ]+$");
-}
+        return texto.matches("^[a-z A-Z áéíóúÁÉÍÓÚñÑ]+$");
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAlta;

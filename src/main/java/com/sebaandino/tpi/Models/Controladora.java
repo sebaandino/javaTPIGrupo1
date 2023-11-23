@@ -23,7 +23,7 @@ public class Controladora {
        return true;
     }
 
-    public void altaCliente(String nombre, String apellido,int dni) throws Exception {
+    public boolean altaCliente(String nombre, String apellido, int dni) throws Exception {
         
         Cliente cliente = new Cliente();
         cliente.setNombre(nombre);
@@ -32,6 +32,7 @@ public class Controladora {
         
         
         controlPersis.altaCliente(cliente);
+        return true;
     }
 
     public List<Cliente> traerClientes() {
@@ -62,6 +63,10 @@ public class Controladora {
         
         controlPersis.EliminarTecnico(idTecnico);
     }
+    public void eliminarCliente(int idCliente) {
+        
+        controlPersis.eliminarCliente(idCliente);
+    }
 
     public Cliente traeCliente(int dniCliente) {
         return controlPersis.traerCliente(dniCliente);
@@ -80,6 +85,18 @@ public class Controladora {
 
     public Tecnico traerTecnico(Long id) {
        return controlPersis.traerTecnico(id);
+    }
+    
+
+
+    public void editarCliente(Cliente c, int dni, String nombre, String apellido) {
+        
+        c.setDni(dni);
+        c.setNombre(nombre);
+        c.setApellido(apellido);
+        
+        controlPersis.editarCliente(c);
+        
     }
     
 }

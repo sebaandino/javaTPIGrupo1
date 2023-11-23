@@ -42,6 +42,14 @@ public class ControladoraPersistencia {
             Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    public void eliminarCliente(int idCliente) {
+        try {
+            clienteJpa.destroy(idCliente);
+        } catch (NonexistentEntityException ex) {
+            Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
     public Cliente traerCliente(int dniCliente) {
       return clienteJpa.findCliente(dniCliente);
@@ -54,5 +62,16 @@ public class ControladoraPersistencia {
     public Tecnico traerTecnico(Long id) {
         return tecnicoJpa.findTecnico(id);
     }
+    
+
+
+    public void editarCliente(Cliente c) {
+        try {
+            clienteJpa.edit(c);
+        } catch (Exception ex) {
+            Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+  
     
 }
