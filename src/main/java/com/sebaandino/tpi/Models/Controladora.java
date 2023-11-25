@@ -11,7 +11,7 @@ public class Controladora {
     
     ControladoraPersistencia controlPersis = new ControladoraPersistencia();
 
-    public boolean altaTecnico(String nombre, String apellido, Categoria categoria) {
+    public boolean altaTecnico(String nombre, String apellido, String categoria) {
         
         Tecnico tecnico = new Tecnico();
         
@@ -19,8 +19,9 @@ public class Controladora {
         tecnico.setApellido(apellido);
         tecnico.setCategoria(categoria);
         
-       controlPersis.altaTecnico(tecnico);
-       return true;
+        controlPersis.altaTecnico(tecnico);
+        
+        return true;
     }
 
     public boolean altaCliente(String nombre, String apellido, int dni) throws Exception {
@@ -65,13 +66,16 @@ public class Controladora {
         controlPersis.altaInsidente(insidente);
     }
 
-    public void EliminarTecnico(Long idTecnico) {
+    public void EliminarTecnico(int idTecnico) {
         
         controlPersis.EliminarTecnico(idTecnico);
     }
     public void eliminarCliente(int idCliente) {
         
         controlPersis.eliminarCliente(idCliente);
+    }
+    public void eliminarCategoria(Long idCategoria) {
+        controlPersis.eliminarCategoria(idCategoria);
     }
 
     public Cliente traeCliente(int dniCliente) {
@@ -86,7 +90,7 @@ public class Controladora {
         return listaInsidentesFiltrada;
     }
 
-    public Tecnico traerTecnico(Long id) {
+    public Tecnico traerTecnico(int id) {
        return controlPersis.traerTecnico(id);
     }
 
@@ -122,5 +126,14 @@ public class Controladora {
         c.setApellido(apellido);
         controlPersis.editarCliente(c);
     }
+
+    public void editarTecnico(Tecnico t, String nombre, String apellido, String categoria) {
+        t.setNombre(nombre);
+        t.setApellido(apellido);
+        t.setCategoria(categoria);
+        controlPersis.editarTecnico(t);
+    }
+
+
     
 }

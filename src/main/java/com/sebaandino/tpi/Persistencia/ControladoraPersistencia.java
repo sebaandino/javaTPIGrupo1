@@ -15,6 +15,7 @@ public class ControladoraPersistencia {
     TecnicoJpaController tecnicoJpa = new TecnicoJpaController();
     InsidenteJpaController insidenteJpa = new InsidenteJpaController();
     CategoriaJpaController catJpa = new CategoriaJpaController();
+    
 
     public void altaTecnico(Tecnico tecnico) {
         tecnicoJpa.create(tecnico);
@@ -37,7 +38,7 @@ public class ControladoraPersistencia {
         insidenteJpa.create(insidente);
     }
 
-    public void EliminarTecnico(Long idTecnico) {
+    public void EliminarTecnico(int idTecnico) {
         try {
             tecnicoJpa.destroy(idTecnico);
         } catch (NonexistentEntityException ex) {
@@ -52,6 +53,13 @@ public class ControladoraPersistencia {
             Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    public void eliminarCategoria(Long idCategoria) {
+        try {
+            catJpa.destroy(idCategoria);
+        } catch (NonexistentEntityException ex) {
+            Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
     public Cliente traerCliente(int dniCliente) {
       return clienteJpa.findCliente(dniCliente);
@@ -61,7 +69,7 @@ public class ControladoraPersistencia {
         return insidenteJpa.findInsidenteEntities();
     }
 
-    public Tecnico traerTecnico(Long id) {
+    public Tecnico traerTecnico(int id) {
         return tecnicoJpa.findTecnico(id);
     }
 
@@ -87,6 +95,16 @@ public class ControladoraPersistencia {
             Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    public void editarTecnico(Tecnico t) {
+        try {
+            tecnicoJpa.edit(t);
+        } catch (Exception ex) {
+            Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+
   
     
 }

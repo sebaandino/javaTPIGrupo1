@@ -1,6 +1,8 @@
 com\sebaandino\tpi\Igu\AltaTecnico$4.class
+com\sebaandino\tpi\Igu\EditarTecnico$4.class
 com\sebaandino\tpi\Models\Cliente_.class
 com\sebaandino\tpi\Igu\AltaCliente$4.class
+com\sebaandino\tpi\Igu\Menu$10.class
 com\sebaandino\tpi\Persistencia\exceptions\PreexistingEntityException.class
 com\sebaandino\tpi\Igu\Menu$8.class
 com\sebaandino\tpi\Igu\InfoCliente$2.class
@@ -10,6 +12,9 @@ com\sebaandino\tpi\Igu\EditarCliente$1.class
 com\sebaandino\tpi\Persistencia\exceptions\IllegalOrphanException.class
 com\sebaandino\tpi\Igu\Menu$2.class
 com\sebaandino\tpi\Models\Categoria.class
+com\sebaandino\tpi\Igu\EditarTecnico$1.class
+com\sebaandino\tpi\Igu\ListaCategorias.class
+com\sebaandino\tpi\Igu\ListaCategorias$3.class
 com\sebaandino\tpi\Igu\AltaInsidente$2.class
 com\sebaandino\tpi\Igu\Menu$5.class
 com\sebaandino\tpi\Igu\AltaCliente$1.class
@@ -24,12 +29,13 @@ com\sebaandino\tpi\Igu\Menu$1.class
 com\sebaandino\tpi\Igu\EditarCliente$2.class
 com\sebaandino\tpi\Igu\ListaClientes.class
 com\sebaandino\tpi\Persistencia\InsidenteJpaController.class
+com\sebaandino\tpi\Igu\ListaCategorias$4.class
 com\sebaandino\tpi\Igu\AltaCliente$2.class
 com\sebaandino\tpi\Igu\AltaTecnico$2.class
 com\sebaandino\tpi\Persistencia\ClienteJpaController.class
 com\sebaandino\tpi\Persistencia\TecnicoJpaController.class
-com\sebaandino\tpi\Igu\AltaTecnico$5.class
 com\sebaandino\tpi\Igu\ListaClientes$3.class
+com\sebaandino\tpi\Igu\EditarTecnico$2.class
 com\sebaandino\tpi\Igu\AltaCliente.class
 com\sebaandino\tpi\Igu\ListaClientes$5.class
 com\sebaandino\tpi\Igu\AltaInsidente.class
@@ -38,6 +44,7 @@ com\sebaandino\tpi\Igu\ListaTecnicos$2.class
 com\sebaandino\tpi\Igu\ListaTecnicos.class
 com\sebaandino\tpi\Igu\Menu$3.class
 com\sebaandino\tpi\Igu\InfoCliente$1.class
+com\sebaandino\tpi\Igu\ListaCategorias$1.class
 com\sebaandino\tpi\Igu\Menu$7.class
 com\sebaandino\tpi\Models\Controladora.class
 com\sebaandino\tpi\Igu\AltaCategoria$1.class
@@ -46,9 +53,14 @@ com\sebaandino\tpi\Models\Tecnico_.class
 com\sebaandino\tpi\Dto\ClienteDto.class
 com\sebaandino\tpi\Igu\EditarCliente$3.class
 com\sebaandino\tpi\Igu\ListaClientes$2.class
+com\sebaandino\tpi\Igu\Menu$11.class
+.netbeans_automatic_build
 com\sebaandino\tpi\Igu\AltaCategoria.class
 com\sebaandino\tpi\Igu\ListaClientes$4.class
 com\sebaandino\tpi\Igu\Menu.class
+com\sebaandino\tpi\Igu\EditarTecnico.class
+com\sebaandino\tpi\Igu\EditarTecnico$3.class
+com\sebaandino\tpi\Igu\ListaCategorias$2.class
 com\sebaandino\tpi\Igu\Menu$9.class
 com\sebaandino\tpi\Persistencia\CategoriaJpaController.class
 com\sebaandino\tpi\Igu\AltaCliente$3.class

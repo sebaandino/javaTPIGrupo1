@@ -188,7 +188,7 @@ public class AltaInsidente extends javax.swing.JFrame {
             return;
         }
         
-        Tecnico tecnico = control.traerTecnico(Long.valueOf(txtId.getText()));
+        Tecnico tecnico = control.traerTecnico(Integer.parseInt(txtId.getText()));
         
         if(tecnico == null){
             JOptionPaneUtil.mostrarMensaje("El tecnico no existe en la base de datos", JOptionPaneUtil.TipoMensaje.ERROR);

@@ -21,12 +21,10 @@ public class Tecnico implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_tecnico")
-    private Long idTecnico;
+    private int idTecnico;
     private String nombre;
     private String apellido;
-    @ManyToOne
-    @JoinColumn(name="idCategoria")
-    private Categoria categoria;
+    private String categoria;
 
     
 }
