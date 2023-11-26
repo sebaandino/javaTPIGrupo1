@@ -1,14 +1,17 @@
 
 package com.sebaandino.tpi.Igu;
 
-
+import com.sebaandino.tpi.Models.Cliente;
+import com.sebaandino.tpi.Models.Controladora;
+import com.sebaandino.tpi.Utils.JOptionPaneUtil;
 
 public class Menu extends javax.swing.JFrame {
-
-   
+    
     public Menu() {
         initComponents();
     }
+    
+    Controladora control = new Controladora();
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -265,7 +268,26 @@ public class Menu extends javax.swing.JFrame {
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
        
+        String dniString = txtDni.getText();
+        
+        if(dniString.isEmpty()){
+            JOptionPaneUtil.mostrarMensaje("Ingrese el dni a buscar!", JOptionPaneUtil.TipoMensaje.ERROR);
+            return;
+        }
+        
+        if(!esSoloNumero(dniString)){
+            JOptionPaneUtil.mostrarMensaje("Solo se permiten ingresar numeros!", JOptionPaneUtil.TipoMensaje.ERROR);
+            return;
+        }
+        
         int dniCliente = Integer.parseInt(txtDni.getText());
+        
+        Cliente cliente = control.traeCliente(dniCliente);
+        
+        if(cliente == null){
+            JOptionPaneUtil.mostrarMensaje("El cliente no existe en la base de datos!", JOptionPaneUtil.TipoMensaje.ERROR);
+            return;
+        }
         
        InfoCliente infoCliente = new InfoCliente(dniCliente);
        infoCliente.setVisible(true);
@@ -294,6 +316,10 @@ public class Menu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnListaIncidenciasActionPerformed
 
+     //expresion regular para numeros
+     private boolean esSoloNumero(String numero) {
+        return numero.matches("^[0123456789]+$");
+    }
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

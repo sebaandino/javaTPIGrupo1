@@ -123,30 +123,22 @@ public class AltaCategoria extends javax.swing.JFrame {
 
     private void btnAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAltaActionPerformed
         String tipoCategoria = txtTipo.getText();
+      
+        if(tipoCategoria.isEmpty()){
+            JOptionPaneUtil.mostrarMensaje("Ingrese el tipo de categoria!", JOptionPaneUtil.TipoMensaje.ERROR);
+            return;
+        }
         
-//  TODO bug cuando verifica categoria (siempre muestra el mensaje "Categoria ya existente"        
-//        if(control.verificarCategoria(tipoCategoria)){
-//            //verifico que los campos no esten vacios
-//            if (tipoCategoria .isEmpty()) {
-//                JOptionPaneUtil.mostrarMensaje("Por favor, complete el campo Tipo Categoria", JOptionPaneUtil.TipoMensaje.ERROR);
-//                return;
-//            }
-//
-//            //verifico que no se hayan ingresado numeros
-//            if (!esSoloTexto(tipoCategoria )) {
-//                JOptionPaneUtil.mostrarMensaje("Por favor, ingresa solo letras ", JOptionPaneUtil.TipoMensaje.ERROR);
-//                return;
-//            }
-//
-//            //si control.altaTecnico es exitoso devuelve un true,por lo tanto se muestra el mensaje de alta
-//            if (control.altaCategoria(tipoCategoria )) {
-//                JOptionPaneUtil.mostrarMensaje("Categoria dada de alta!!!", JOptionPaneUtil.TipoMensaje.INFORMATIVO);
-//                txtTipo.setText("");
-//            } else {
-//                JOptionPaneUtil.mostrarMensaje("Error al dar de alta la categoria", JOptionPaneUtil.TipoMensaje.ERROR);
-//            }
-//        }else JOptionPaneUtil.mostrarMensaje("Categoria ya existente", JOptionPaneUtil.TipoMensaje.ERROR);
-
+        if(!esSoloTexto(tipoCategoria)){
+            JOptionPaneUtil.mostrarMensaje("Solo se permite ingresar letras", JOptionPaneUtil.TipoMensaje.ERROR);
+            return;
+        }
+        
+        if(control.verificarCategoria(tipoCategoria)){
+            JOptionPaneUtil.mostrarMensaje("La categoria ya existe en la base de datos!", JOptionPaneUtil.TipoMensaje.ERROR);
+            return;
+        }
+        
         if (control.altaCategoria(tipoCategoria )) {
             JOptionPaneUtil.mostrarMensaje("Categoria dada de alta!!!", JOptionPaneUtil.TipoMensaje.INFORMATIVO);
             txtTipo.setText("");

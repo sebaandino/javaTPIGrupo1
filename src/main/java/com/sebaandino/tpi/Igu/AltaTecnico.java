@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package com.sebaandino.tpi.Igu;
 
 import com.sebaandino.tpi.Models.Controladora;
@@ -16,7 +12,6 @@ public class AltaTecnico extends javax.swing.JFrame {
     }
     
     Controladora control = new Controladora();
-
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -164,7 +159,7 @@ public class AltaTecnico extends javax.swing.JFrame {
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
         txtNombre.setText("");
         txtApellido.setText("");
-        cmbCategoria.setSelectedIndex(0);
+        cmbCategoria.setSelectedIndex(-1);
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
     private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
@@ -175,33 +170,38 @@ public class AltaTecnico extends javax.swing.JFrame {
         
              String nombre = txtNombre.getText();
              String apellido = txtApellido.getText();
-             String categoria = cmbCategoria.getSelectedItem().toString();
              
-       //Verifica la existencia previa del tecnico en la lista
-       //True = no está. False = está
-       if(control.verificarTecnico(nombre, apellido)){
-            //verifico que los campos no esten vacios
+             
             if (nombre.isEmpty() || apellido.isEmpty()) {
                 JOptionPaneUtil.mostrarMensaje("Por favor, completa ambos campos de nombre y apellido", JOptionPaneUtil.TipoMensaje.ERROR);
                 return;
             }
+            
+            if(cmbCategoria.getSelectedIndex() == -1){
+                JOptionPaneUtil.mostrarMensaje("Seleccione una categoria", JOptionPaneUtil.TipoMensaje.ERROR);
+                return;  
+            }
+            
+            String categoria = cmbCategoria.getSelectedItem().toString();
 
-            //verifico que no se hayan ingresado numeros 
             if (!esSoloTexto(nombre) || !esSoloTexto(apellido)) {
                 JOptionPaneUtil.mostrarMensaje("Por favor, ingresa solo letras en los campos de nombre y apellido", JOptionPaneUtil.TipoMensaje.ERROR);
                 return;
             }
-
-            //si control.altaTecnico es exitoso devuelve un true,por lo tanto se muestra el mensaje de alta
-            if (control.altaTecnico(nombre, apellido, categoria )) {
-                JOptionPaneUtil.mostrarMensaje("Tecnico dado de alta!!!", JOptionPaneUtil.TipoMensaje.INFORMATIVO);
-                txtNombre.setText("");
-                txtApellido.setText("");
-                cmbCategoria.setSelectedIndex(0);
-            } else {
-                JOptionPaneUtil.mostrarMensaje("Error al dar de alta al técnico", JOptionPaneUtil.TipoMensaje.ERROR);
+            
+            if(control.verificarTecnico(nombre, apellido)){
+                JOptionPaneUtil.mostrarMensaje("El tecnico ya existe en la base de datos!", JOptionPaneUtil.TipoMensaje.ERROR);
+            return;
             }
-       }
+            
+            if(control.altaTecnico(nombre, apellido, categoria)){
+                JOptionPaneUtil.mostrarMensaje("Tecnico dado de alta!", JOptionPaneUtil.TipoMensaje.INFORMATIVO);
+            txtNombre.setText("");
+            txtApellido.setText("");
+            cmbCategoria.setSelectedIndex(-1);
+            }else{
+                JOptionPaneUtil.mostrarMensaje("Error al dar de alta!", JOptionPaneUtil.TipoMensaje.ERROR);
+            }      
     }//GEN-LAST:event_btnAltaActionPerformed
 
     //exprision regular

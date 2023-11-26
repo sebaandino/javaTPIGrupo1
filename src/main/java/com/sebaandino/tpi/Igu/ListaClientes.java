@@ -121,6 +121,7 @@ public class ListaClientes extends javax.swing.JFrame {
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
 
+        
         //si la tabla no esta vacia
         if(tblClientes.getRowCount() > 0 ){
             //si no hay ninguna fila seleccionada
@@ -128,6 +129,8 @@ public class ListaClientes extends javax.swing.JFrame {
                 int idCliente = (int) tblClientes.getValueAt(tblClientes.getSelectedRow(), 0);
                 control.eliminarCliente(idCliente);
                 cargarTabla();
+            }else{
+                JOptionPaneUtil.mostrarMensaje("No se selecciono ningun cliete para eliminar", JOptionPaneUtil.TipoMensaje.ERROR);
             }
         }
     }//GEN-LAST:event_btnEliminarActionPerformed

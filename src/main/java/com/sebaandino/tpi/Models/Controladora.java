@@ -44,10 +44,12 @@ public class Controladora {
     public boolean verificarTecnico(String nombre, String apellido){
         List<Tecnico> tecnicos = this.traerTecnicos();
         for(Tecnico t : tecnicos){
-            if(t.getApellido().equalsIgnoreCase(apellido) && t.getNombre().equalsIgnoreCase(nombre))
-                return false;
+            
+            if(t.getApellido().equalsIgnoreCase(apellido) && t.getNombre().equalsIgnoreCase(nombre)){
+                return true;
+            }
         }
-        return true;
+        return false;
     }
 
     public void altaInsidente(String descripcion, double costo, Cliente cliente, Tecnico tecnico ){

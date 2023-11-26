@@ -18,11 +18,7 @@ public class InfoCliente extends javax.swing.JFrame {
         initComponents();
         this.dniCliente = dniCliente;
         control = new Controladora();
-
-
     }
-
-   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -159,11 +155,7 @@ public class InfoCliente extends javax.swing.JFrame {
         txtApellido.setText(cliente.getApellido());
         
         //Cargar tabla con los insidentes vinculados al cliente buscado por dni
-        
-       
                 cargarTabla();
-           
-        
     }//GEN-LAST:event_formWindowOpened
 
      private void cargarTabla() {
@@ -195,10 +187,6 @@ public class InfoCliente extends javax.swing.JFrame {
             tblInsidentes.setModel(modeloTabla);
         }
     }
-
-
-   
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAtras;
     private javax.swing.JLabel jLabel1;

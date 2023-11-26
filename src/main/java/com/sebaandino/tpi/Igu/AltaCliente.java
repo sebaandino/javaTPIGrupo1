@@ -131,13 +131,13 @@ public class AltaCliente extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtApellido))
                 .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(txtDni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtDni, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(51, 51, 51)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnLimpiar)
@@ -175,46 +175,58 @@ public class AltaCliente extends javax.swing.JFrame {
 
         String nombre = txtNombre.getText();
         String apellido = txtApellido.getText();
-        int dni = Integer.parseInt(txtDni.getText());
-        if(control.traeCliente(dni)==null){
-            if (nombre.isEmpty() || apellido.isEmpty() ) {
-                JOptionPaneUtil.mostrarMensaje("Por favor, completar todos los campos", JOptionPaneUtil.TipoMensaje.ERROR);
+        String dniString = txtDni.getText();
+        
+        if(apellido.isEmpty() || dniString.isEmpty() || nombre.isEmpty()) {
+                JOptionPaneUtil.mostrarMensaje("Por favor, complete todos los campos", JOptionPaneUtil.TipoMensaje.ERROR);
+                return;
+        }
+        
+        if (!esSoloTexto(nombre) || !esSoloTexto(apellido)) {
+                JOptionPaneUtil.mostrarMensaje("Por favor, ingrese solo letras en los campos de nombre y apellido", JOptionPaneUtil.TipoMensaje.ERROR);
+                return;
+        }
+        
+        if(!esSoloNumero(dniString)){
+            JOptionPaneUtil.mostrarMensaje("Solo ingrese numeros en el campo Dni", JOptionPaneUtil.TipoMensaje.ERROR);
+                return;
+        }
+        
+        int dni = Integer.parseInt(dniString);
+        
+        if (dni<0) {
+                JOptionPaneUtil.mostrarMensaje("DNI invalido", JOptionPaneUtil.TipoMensaje.ERROR);
+                return;
+        }
+        
+        if(control.traeCliente(dni)!=null){
+            JOptionPaneUtil.mostrarMensaje("El cliente ya existe", JOptionPaneUtil.TipoMensaje.ERROR);
+                return;
+        }
+        
+        try {
+            if(control.altaCliente(nombre, apellido, dni)){
+                JOptionPaneUtil.mostrarMensaje("Cliente dado de alta!", JOptionPaneUtil.TipoMensaje.INFORMATIVO);
+            }else{
+                JOptionPaneUtil.mostrarMensaje("Error al dar de alta!", JOptionPaneUtil.TipoMensaje.ERROR);
             }
-
-            if (!esSoloTexto(nombre) || !esSoloTexto(apellido)) {
-                JOptionPaneUtil.mostrarMensaje("Por favor, ingresa solo letras en los campos de nombre y apellido", JOptionPaneUtil.TipoMensaje.ERROR);
-            }
-
-            if (dni<0) {
-                JOptionPaneUtil.mostrarMensaje("DNI invalido", JOptionPaneUtil.TipoMensaje.ERROR); 
-            }
-
-            //puse un try-catch block pq NetBeans marcaba error
-            try {
-                if (control.altaCliente(nombre, apellido, dni )) {
-                    JOptionPaneUtil.mostrarMensaje("Cliente dado de alta!!!", JOptionPaneUtil.TipoMensaje.INFORMATIVO);
-                    txtNombre.setText("");
-                    txtApellido.setText("");
-                    txtDni.setText("");
-                } else {
-                    JOptionPaneUtil.mostrarMensaje("Error al dar de alta al Cliente", JOptionPaneUtil.TipoMensaje.ERROR);
-                }   
-            } catch (Exception ex) {
-                Logger.getLogger(AltaCliente.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }else JOptionPaneUtil.mostrarMensaje("El cliente ya existe", JOptionPaneUtil.TipoMensaje.ERROR);
-       
+        } catch (Exception ex) {
+            Logger.getLogger(AltaCliente.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnAltaActionPerformed
-    //exprision regular
+    //exprision regular para letras
     private boolean esSoloTexto(String texto) {
         return texto.matches("^[a-z A-Z áéíóúÁÉÍÓÚñÑ]+$");
+    }
+    //expresion regular para numeros
+     private boolean esSoloNumero(String numero) {
+        return numero.matches("^[0123456789]+$");
     }
     
     private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
         txtNombre.setText("");
         txtApellido.setText("");
         txtDni.setText("");
-        
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
     private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
