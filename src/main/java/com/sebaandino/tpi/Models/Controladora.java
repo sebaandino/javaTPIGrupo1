@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 
-
+//Matix: Por algun motivo esta clase me macra error, pero no me dice dónde
 public class Controladora {
     
     ControladoraPersistencia controlPersis = new ControladoraPersistencia();
@@ -78,6 +78,9 @@ public class Controladora {
     public void eliminarCategoria(Long idCategoria) {
         controlPersis.eliminarCategoria(idCategoria);
     }
+    public void eliminarInsidente(Long idInsidente){
+        controlPersis.eliminarInsdiente(idInsidente);
+    }
 
     public Cliente traeCliente(int dniCliente) {
         return controlPersis.traerCliente(dniCliente);
@@ -117,6 +120,10 @@ public class Controladora {
     
     public List<Categoria> traerCaterorias() {
         return controlPersis.traerCategorias();
+    }
+    
+    public List<Insidente> traerInsidentes(){
+        return controlPersis.PersistraerInsidentes();
     }
     
 

@@ -6,6 +6,7 @@ package com.sebaandino.tpi.Igu;
 
 import com.sebaandino.tpi.Models.Categoria;
 import com.sebaandino.tpi.Models.Controladora;
+import com.sebaandino.tpi.Models.Insidente;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
@@ -13,10 +14,12 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author thiag
  */
-public class ListaCategorias extends javax.swing.JFrame {
+
+//MODIFICAR TODO
+public class ListaIncidentes extends javax.swing.JFrame {
 
     Controladora control;
-    public ListaCategorias() {
+    public ListaIncidentes() {
         initComponents();
         control = new Controladora();
         cargarTabla();
@@ -42,7 +45,7 @@ public class ListaCategorias extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jLabel1.setText("Listado de Categorias:");
+        jLabel1.setText("Listado de Incidentes:");
 
         btnEliminar.setText("Eliminar");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -51,7 +54,7 @@ public class ListaCategorias extends javax.swing.JFrame {
             }
         });
 
-        btnEditar.setText("Editar");
+        btnEditar.setText("Editar(implementar)");
         btnEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEditarActionPerformed(evt);
@@ -90,7 +93,7 @@ public class ListaCategorias extends javax.swing.JFrame {
                             .addComponent(btnEliminar)
                             .addComponent(btnEditar)))
                     .addComponent(jLabel1))
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -130,20 +133,19 @@ public class ListaCategorias extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-//POSIBLEMENTE DEJE DE FUNCIONAR. BORRAR COMENTARIO CASO CONTARIO
         //si la tabla no esta vacia
         if(tblInsidentes.getRowCount() > 0 ){
             //si no hay ninguna fila seleccionada
             if(tblInsidentes.getSelectedRow() != -1){
-                Long idCategoria = Long.parseLong((tblInsidentes.getValueAt(tblInsidentes.getSelectedRow(), 0)).toString());
-                control.eliminarCategoria(idCategoria);
+                Long idInsidente = Long.parseLong((tblInsidentes.getValueAt(tblInsidentes.getSelectedRow(), 0)).toString());
+                control.eliminarInsidente(idInsidente);
                 cargarTabla();
             }
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-        //IMPLEMENTAR
+        //Implementar
     }//GEN-LAST:event_btnEditarActionPerformed
 
     private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
@@ -168,18 +170,19 @@ public class ListaCategorias extends javax.swing.JFrame {
             }
         };
         
-        
-        String titulos[] = {"ID", "Descripcion"};
+        // ID, Desc, Costo, Fecha, Estado, Cliente, Tecnico
+        String titulos[] = {"ID","Cliente", "Descripcion", "ID_Tecnico", "Fecha"};
         modeloTabla.setColumnIdentifiers(titulos);
         
-        List<Categoria> listaCategorias = control.traerCaterorias();
+        List<Insidente> listaIncidentes = control.traerInsidentes();
         
-        if(listaCategorias != null){
-            for(Categoria c : listaCategorias){
-                Object[] obj = {c.getId(),c.getTipoCategoria()};
+        //Fix
+        if(listaIncidentes != null){
+            for(Insidente i : listaIncidentes){
+                //Object[] obj = {i.getId(),i.getTipoCategoria()};
+                Object [] obj = {i.getId_insidente(),i.getDniCliente(), i.getDescInsidente(), i.getIdTecnico(), i.getFechaInsidente()};
                 modeloTabla.addRow(obj);
             }
-            
             tblInsidentes.setModel(modeloTabla);
         }    
     }
