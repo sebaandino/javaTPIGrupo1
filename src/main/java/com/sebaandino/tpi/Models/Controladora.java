@@ -2,8 +2,9 @@
 package com.sebaandino.tpi.Models;
 
 import com.sebaandino.tpi.Persistencia.ControladoraPersistencia;
-import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 
@@ -52,16 +53,14 @@ public class Controladora {
         return false;
     }
 
-    public void altaInsidente(String descripcion, double costo, Cliente cliente, Tecnico tecnico ){
+    public void altaInsidente(String descripcion, double costo, Cliente cliente, Tecnico tecnico,Date fecha ){
         
         Insidente insidente = new Insidente();
-        LocalDateTime fechaActual = LocalDateTime.now();
-        
         
         insidente.setDescInsidente(descripcion);
         insidente.setCosto(costo);
         insidente.setEstado(false);
-        insidente.setFechaInsidente(fechaActual);
+        insidente.setFechaInsidente(fecha);
         insidente.setIdTecnico(tecnico);
         insidente.setDniCliente(cliente);
         
@@ -136,6 +135,19 @@ public class Controladora {
         controlPersis.editarTecnico(t);
     }
 
+    public List<Insidente> traerInsidentes() {
+        return controlPersis.traerInsidentes();
+    }
 
+    public List<Insidente> traerInsidentesEntreFechas(Date fechaInicio, Date fechaFin) {
+        List<Insidente> listaInsidentes = controlPersis.traerInsidentes();
+        
+        // Filtrar la lista para obtener solo los incidentes que están dentro del rango de fechas
+    List<Insidente> listaIncidentesFiltrada = listaInsidentes.stream()
+            .filter(incidente -> incidente.getFechaInsidente().after(fechaInicio) &&
+                                 incidente.getFechaInsidente().before(fechaFin))
+            .collect(Collectors.toList());
     
+    return listaIncidentesFiltrada;
+    }
 }

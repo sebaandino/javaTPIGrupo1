@@ -1,6 +1,7 @@
 C:\Users\Seba\Documents\NetBeansProjects\TPI\src\main\java\com\sebaandino\tpi\Persistencia\exceptions\IllegalOrphanException.java
 C:\Users\Seba\Documents\NetBeansProjects\TPI\src\main\java\com\sebaandino\tpi\Igu\AltaCategoria.java
 C:\Users\Seba\Documents\NetBeansProjects\TPI\src\main\java\com\sebaandino\tpi\Persistencia\TecnicoJpaController.java
+C:\Users\Seba\Documents\NetBeansProjects\TPI\src\main\java\com\sebaandino\tpi\Igu\ListaInsidenciasEntreFechas.java
 C:\Users\Seba\Documents\NetBeansProjects\TPI\src\main\java\com\sebaandino\tpi\Persistencia\exceptions\PreexistingEntityException.java
 C:\Users\Seba\Documents\NetBeansProjects\TPI\src\main\java\com\sebaandino\tpi\Persistencia\InsidenteJpaController.java
 C:\Users\Seba\Documents\NetBeansProjects\TPI\src\main\java\com\sebaandino\tpi\Igu\Menu.java
@@ -14,6 +15,7 @@ C:\Users\Seba\Documents\NetBeansProjects\TPI\src\main\java\com\sebaandino\tpi\Pe
 C:\Users\Seba\Documents\NetBeansProjects\TPI\src\main\java\com\sebaandino\tpi\Persistencia\ClienteJpaController.java
 C:\Users\Seba\Documents\NetBeansProjects\TPI\src\main\java\com\sebaandino\tpi\Models\Tecnico.java
 C:\Users\Seba\Documents\NetBeansProjects\TPI\src\main\java\com\sebaandino\tpi\Igu\ListaCategorias.java
+C:\Users\Seba\Documents\NetBeansProjects\TPI\src\main\java\com\sebaandino\tpi\Igu\ListaInsidencias.java
 C:\Users\Seba\Documents\NetBeansProjects\TPI\src\main\java\com\sebaandino\tpi\Igu\EditarCliente.java
 C:\Users\Seba\Documents\NetBeansProjects\TPI\src\main\java\com\sebaandino\tpi\Models\Cliente.java
 C:\Users\Seba\Documents\NetBeansProjects\TPI\src\main\java\com\sebaandino\tpi\Persistencia\CategoriaJpaController.java
