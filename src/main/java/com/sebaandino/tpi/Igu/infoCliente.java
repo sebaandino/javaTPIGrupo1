@@ -9,7 +9,7 @@ import javax.swing.table.DefaultTableModel;
 
 
 public class InfoCliente extends javax.swing.JFrame {
-
+    //MATIX: el nombre de la clase me marca error, no entiendo por qué
     Controladora control;
    
     int dniCliente;

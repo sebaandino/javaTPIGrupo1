@@ -1,2 +1,15 @@
 
 target/
+target/classes/com/sebaandino/tpi/Persistencia/TecnicoJpaController.class
+target/classes/com/sebaandino/tpi/Models/Tecnico.class
+target/classes/com/sebaandino/tpi/Models/Controladora.class
+target/classes/com/sebaandino/tpi/Igu/ListaTecnicos.class
+target/classes/com/sebaandino/tpi/Igu/ListaTecnicos$4.class
+target/classes/com/sebaandino/tpi/Igu/ListaTecnicos$3.class
+target/classes/com/sebaandino/tpi/Igu/ListaTecnicos$2.class
+target/classes/com/sebaandino/tpi/Igu/ListaTecnicos$1.class
+target/classes/com/sebaandino/tpi/Igu/InfoCliente.class
+target/classes/com/sebaandino/tpi/Igu/InfoCliente$3.class
+target/classes/com/sebaandino/tpi/Igu/InfoCliente$2.class
+target/classes/com/sebaandino/tpi/Igu/InfoCliente$1.class
+*.class

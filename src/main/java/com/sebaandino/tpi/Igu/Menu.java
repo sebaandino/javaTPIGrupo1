@@ -36,6 +36,8 @@ public class Menu extends javax.swing.JFrame {
         btnAltaInsidente = new javax.swing.JButton();
         btnListaCategorias = new javax.swing.JButton();
         btnListaIncidencias = new javax.swing.JButton();
+        btnBuscarIncidente = new javax.swing.JButton();
+        txtFecha = new javax.swing.JTextField();
 
         btnAltaCliente1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnAltaCliente1.setText("Lista Clientes");
@@ -137,6 +139,21 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        btnBuscarIncidente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/searchPNG.png"))); // NOI18N
+        btnBuscarIncidente.setRolloverSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/searchmagnifierinterfacesymbol1_79893.png"))); // NOI18N
+        btnBuscarIncidente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarIncidenteActionPerformed(evt);
+            }
+        });
+
+        txtFecha.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        txtFecha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtFechaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -146,7 +163,12 @@ public class Menu extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(30, 30, 30)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnSalir)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnBuscarIncidente, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(31, 31, 31)
+                                .addComponent(btnSalir))
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(jSeparator4, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jSeparator3, javax.swing.GroupLayout.Alignment.LEADING)
@@ -211,8 +233,11 @@ public class Menu extends javax.swing.JFrame {
                     .addComponent(btnAltaInsidente)
                     .addComponent(btnListaIncidencias))
                 .addGap(44, 44, 44)
-                .addComponent(btnSalir)
-                .addGap(41, 41, 41))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnSalir)
+                    .addComponent(btnBuscarIncidente)
+                    .addComponent(txtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(34, 34, 34))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -313,8 +338,19 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_btnListaCategoriasActionPerformed
 
     private void btnListaIncidenciasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListaIncidenciasActionPerformed
-        // TODO add your handling code here:
+        ListaIncidentes listaIncidentes = new ListaIncidentes();
+        //MATIX: No me dan las neuronas para entender porqué no anda esto ahora mismo. sorry
+        ListaIncidentes.setVisible(true);
+        ListaIncidentes.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnListaIncidenciasActionPerformed
+
+    private void btnBuscarIncidenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarIncidenteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscarIncidenteActionPerformed
+
+    private void txtFechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtFechaActionPerformed
 
      //expresion regular para numeros
      private boolean esSoloNumero(String numero) {
@@ -329,6 +365,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton btnAltaInsidente;
     private javax.swing.JButton btnAltaTecnico;
     private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnBuscarIncidente;
     private javax.swing.JButton btnListaCategorias;
     private javax.swing.JButton btnListaClientes;
     private javax.swing.JButton btnListaIncidencias;
@@ -342,5 +379,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JTextField txtDni;
+    private javax.swing.JTextField txtFecha;
     // End of variables declaration//GEN-END:variables
 }

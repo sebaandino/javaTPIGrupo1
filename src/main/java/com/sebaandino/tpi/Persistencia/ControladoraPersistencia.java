@@ -85,9 +85,6 @@ public class ControladoraPersistencia {
         return catJpa.findCategoriaEntities();
     }
     
-    
-
-
     public void editarCliente(Cliente c) {
         try {
             clienteJpa.edit(c);
@@ -100,6 +97,18 @@ public class ControladoraPersistencia {
         try {
             tecnicoJpa.edit(t);
         } catch (Exception ex) {
+            Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public List<Insidente> PersistraerInsidentes() {
+        return catJpa.findInsidenteEntities();
+    }
+
+    public void eliminarInsdiente(Long idInsidente) {
+        try {
+            insidenteJpa.destroy(idInsidente);
+        } catch (NonexistentEntityException ex) {
             Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
