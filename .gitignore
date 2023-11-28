@@ -13,3 +13,4 @@ target/classes/com/sebaandino/tpi/Igu/InfoCliente$3.class
 target/classes/com/sebaandino/tpi/Igu/InfoCliente$2.class
 target/classes/com/sebaandino/tpi/Igu/InfoCliente$1.class
 *.class
+target/classes/META-INF/persistence.xml

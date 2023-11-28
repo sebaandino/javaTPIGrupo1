@@ -199,33 +199,61 @@ public class AltaInsidente extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
     private void btnAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAltaActionPerformed
-
-        String descripcion = txtDescripcion.getText();
-        double costo = Double.parseDouble(txtCosto.getText());
+        String descripcion;
+        double costo;
+        Cliente cliente; //Matix: quick patch (Se queja la linea 220 si no está declarado así;
+        Tecnico tecnico; //Matix: quick patch (Mismo caso anterior);
+        Date fecha;
+        if(txtDescripcion.getText().isBlank()){
+            JOptionPaneUtil.mostrarMensaje("La descripción no puede estar vacía.", JOptionPaneUtil.TipoMensaje.ERROR);
+            return;
+        }else{
+            descripcion = txtDescripcion.getText();
+        }
+        if(txtCosto.getText().isBlank() || txtCosto.getText().matches("[A-Za-z!@#$%^&*()_+=?¿¡].*")){
+            JOptionPaneUtil.mostrarMensaje("El costo ingresado es inválido.", JOptionPaneUtil.TipoMensaje.ERROR);    
+            return;
+        }else{
+            costo = Double.parseDouble(txtCosto.getText());
+        }
         
-        Cliente cliente = control.traeCliente(Integer.parseInt(txtDni.getText()));
-        
-        if(cliente == null){
+        if(txtDni.getText().isBlank() || !this.esSoloNumero(txtDni.getText())){
+            JOptionPaneUtil.mostrarMensaje("El ID Cliente no es válido.", JOptionPaneUtil.TipoMensaje.ERROR);
+            return;
+        }else{
+            cliente = control.traeCliente(Integer.parseInt(txtDni.getText()));
+            if(cliente == null){
             JOptionPaneUtil.mostrarMensaje("El cliente no existe en la base de datos", JOptionPaneUtil.TipoMensaje.ERROR);
             return;
-        }
+            }  
+        }    
         
-        Tecnico tecnico = control.traerTecnico(Integer.parseInt(txtId.getText()));
-        
-        if(tecnico == null){
+        if(txtId.getText().isBlank() || !this.esSoloNumero(txtId.getText())){
+            JOptionPaneUtil.mostrarMensaje("El ID Tecnico no es valido.", JOptionPaneUtil.TipoMensaje.ERROR);
+            return;
+        }else{
+            tecnico = control.traerTecnico(Integer.parseInt(txtId.getText()));
+            if(tecnico == null){
             JOptionPaneUtil.mostrarMensaje("El tecnico no existe en la base de datos", JOptionPaneUtil.TipoMensaje.ERROR);
             return;
+            }
         }
-        
-        Date fecha = jdcFecha.getDate();
+        if(jdcFecha.getDate()==null){
+            JOptionPaneUtil.mostrarMensaje("Ingrese una fecha válida.", JOptionPaneUtil.TipoMensaje.ERROR);
+            return;
+        }
+        else{
+            fecha = jdcFecha.getDate();
+        }
        
         control.altaInsidente(descripcion,costo,cliente,tecnico,fecha);
         JOptionPaneUtil.mostrarMensaje("Alta Exitosa!", JOptionPaneUtil.TipoMensaje.INFORMATIVO);
         
-        
-        
     }//GEN-LAST:event_btnAltaActionPerformed
-
+    private boolean esSoloNumero(String numero) {
+        return numero.matches("^[0123456789]+$");
+    }
+    //
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

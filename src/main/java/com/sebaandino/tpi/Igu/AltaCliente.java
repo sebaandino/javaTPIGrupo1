@@ -219,7 +219,7 @@ public class AltaCliente extends javax.swing.JFrame {
         return texto.matches("^[a-z A-Z áéíóúÁÉÍÓÚñÑ]+$");
     }
     //expresion regular para numeros
-     private boolean esSoloNumero(String numero) {
+    private boolean esSoloNumero(String numero) {
         return numero.matches("^[0123456789]+$");
     }
     

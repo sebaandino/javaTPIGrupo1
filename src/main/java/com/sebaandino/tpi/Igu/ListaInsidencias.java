@@ -3,6 +3,7 @@ package com.sebaandino.tpi.Igu;
 
 import com.sebaandino.tpi.Models.Controladora;
 import com.sebaandino.tpi.Models.Insidente;
+import com.sebaandino.tpi.Utils.JOptionPaneUtil;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
@@ -114,11 +115,35 @@ public class ListaInsidencias extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAtrasActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-
+        //si la tabla no esta vacia
+        if(tblInsidentes.getRowCount() > 0 ){
+        //si no hay ninguna fila seleccionada    
+            if(tblInsidentes.getSelectedRow() != -1){
+                Long id = (Long) tblInsidentes.getValueAt(tblInsidentes.getSelectedRow(), 0);
+                control.eliminarInsidente(id);
+                cargarTabla();
+            }
+        }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+                                                  
+        if(tblInsidentes.getRowCount() > 0 ){
+            if(tblInsidentes.getSelectedRow() != -1){
 
+                int idIns = Integer.parseInt(tblInsidentes.getValueAt(tblInsidentes.getSelectedRow(), 0).toString());
+                EditarIncidente eI = new EditarIncidente(idIns);
+                eI.setVisible(true);
+                eI.setLocationRelativeTo(null);
+                this.dispose();
+            } else {
+                JOptionPaneUtil.mostrarMensaje("No selecciono niingun cliente", JOptionPaneUtil.TipoMensaje.INFORMATIVO);
+            }
+        } else {
+            JOptionPaneUtil.mostrarMensaje("No hay datos", JOptionPaneUtil.TipoMensaje.INFORMATIVO);
+
+        }
+              
       
 
     }//GEN-LAST:event_btnEditarActionPerformed
@@ -146,8 +171,8 @@ public class ListaInsidencias extends javax.swing.JFrame {
                     insidente.getDescInsidente(),
                     insidente.getCosto(),
                     insidente.getFechaInsidente(),
-                    insidente.getDniCliente(),
-                    insidente.getIdTecnico()
+                    insidente.getDniCliente().getDni(),
+                    insidente.getIdTecnico().getIdTecnico()
                 };
                 modeloTabla.addRow(obj);
             }

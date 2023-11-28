@@ -68,6 +68,9 @@ public class ControladoraPersistencia {
     public List<Insidente> traerInsidentes() {
         return insidenteJpa.findInsidenteEntities();
     }
+    public Insidente traerInsidente(long id_ins){
+        return insidenteJpa.findInsidente(id_ins);
+    }
 
     public Tecnico traerTecnico(int id) {
         return tecnicoJpa.findTecnico(id);
@@ -100,10 +103,18 @@ public class ControladoraPersistencia {
             Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    public void editarIncidencia(Insidente i) {
+        try {
+            insidenteJpa.edit(i);
+        } catch (Exception ex) {
+            Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
     public List<Insidente> PersistraerInsidentes() {
         return catJpa.findInsidenteEntities();
     }
+    
 
     public void eliminarInsdiente(Long idInsidente) {
         try {

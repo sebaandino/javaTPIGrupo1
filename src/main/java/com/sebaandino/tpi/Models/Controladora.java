@@ -122,9 +122,11 @@ public class Controladora {
         return controlPersis.traerCategorias();
     }
     
+    /*
     public List<Insidente> traerInsidentes(){
         return controlPersis.PersistraerInsidentes();
-    }
+    } Matix: Este metodo funciona con el jpa de Categoria
+    */
     
 
 
@@ -140,6 +142,20 @@ public class Controladora {
         t.setApellido(apellido);
         t.setCategoria(categoria);
         controlPersis.editarTecnico(t);
+    }
+    
+    public void editarIncidencia(Insidente i, long id_i, String descIns, double c, Date f, boolean e, Cliente d, Tecnico t) {
+        i.setId_insidente(id_i);
+        i.setDescInsidente(descIns);
+        i.setCosto(c);
+        i.setFechaInsidente(f);
+        i.setEstado(e);
+        i.setDniCliente(d);
+        i.setIdTecnico(t);
+        controlPersis.editarIncidencia(i);
+    }
+    public Insidente traerInsidente(long id_ins){
+        return controlPersis.traerInsidente(id_ins);
     }
 
     public List<Insidente> traerInsidentes() {

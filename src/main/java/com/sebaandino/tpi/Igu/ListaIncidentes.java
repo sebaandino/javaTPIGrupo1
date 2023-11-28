@@ -180,7 +180,7 @@ public class ListaIncidentes extends javax.swing.JFrame {
         if(listaIncidentes != null){
             for(Insidente i : listaIncidentes){
                 //Object[] obj = {i.getId(),i.getTipoCategoria()};
-                Object [] obj = {i.getId_insidente(),i.getDniCliente(), i.getDescInsidente(), i.getIdTecnico(), i.getFechaInsidente()};
+                Object [] obj = {i.getId_insidente(),i.getDniCliente().getDni(), i.getDescInsidente(), i.getIdTecnico().getIdTecnico(), i.getFechaInsidente()};
                 modeloTabla.addRow(obj);
             }
             tblInsidentes.setModel(modeloTabla);
