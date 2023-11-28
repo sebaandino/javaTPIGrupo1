@@ -346,7 +346,7 @@ public class Menu extends javax.swing.JFrame {
             return;
         }
         
-       InfoCliente infoCliente = new InfoCliente(dniCliente);
+       infoCliente infoCliente = new infoCliente(dniCliente);
        infoCliente.setVisible(true);
        infoCliente.setLocationRelativeTo(null);
     }//GEN-LAST:event_btnBuscarActionPerformed

@@ -67,9 +67,9 @@ public class Controladora {
         controlPersis.altaInsidente(insidente);
     }
 
-    public void EliminarTecnico(int idTecnico) {
+    public boolean EliminarTecnico(int idTecnico) {
         
-        controlPersis.EliminarTecnico(idTecnico);
+        return controlPersis.EliminarTecnico(idTecnico);
     }
     public void eliminarCliente(int idCliente) {
         

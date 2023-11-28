@@ -9,10 +9,11 @@ C:\Users\Seba\Documents\NetBeansProjects\TPI\src\main\java\com\sebaandino\tpi\Ig
 C:\Users\Seba\Documents\NetBeansProjects\TPI\src\main\java\com\sebaandino\tpi\Igu\ListaClientes.java
 C:\Users\Seba\Documents\NetBeansProjects\TPI\src\main\java\com\sebaandino\tpi\Utils\JOptionPaneUtil.java
 C:\Users\Seba\Documents\NetBeansProjects\TPI\src\main\java\com\sebaandino\tpi\Igu\AltaTecnico.java
-C:\Users\Seba\Documents\NetBeansProjects\TPI\src\main\java\com\sebaandino\tpi\Igu\InfoCliente.java
+C:\Users\Seba\Documents\NetBeansProjects\TPI\src\main\java\com\sebaandino\tpi\Igu\infoCliente.java
 C:\Users\Seba\Documents\NetBeansProjects\TPI\src\main\java\com\sebaandino\tpi\Igu\ListaTecnicos.java
 C:\Users\Seba\Documents\NetBeansProjects\TPI\src\main\java\com\sebaandino\tpi\Persistencia\ControladoraPersistencia.java
 C:\Users\Seba\Documents\NetBeansProjects\TPI\src\main\java\com\sebaandino\tpi\Persistencia\ClienteJpaController.java
+C:\Users\Seba\Documents\NetBeansProjects\TPI\src\main\java\com\sebaandino\tpi\Igu\EditarIncidente.java
 C:\Users\Seba\Documents\NetBeansProjects\TPI\src\main\java\com\sebaandino\tpi\Models\Tecnico.java
 C:\Users\Seba\Documents\NetBeansProjects\TPI\src\main\java\com\sebaandino\tpi\Igu\ListaCategorias.java
 C:\Users\Seba\Documents\NetBeansProjects\TPI\src\main\java\com\sebaandino\tpi\Igu\ListaInsidencias.java

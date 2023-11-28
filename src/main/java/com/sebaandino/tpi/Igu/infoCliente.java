@@ -8,13 +8,13 @@ import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
 
-public class InfoCliente extends javax.swing.JFrame {
+public class infoCliente extends javax.swing.JFrame {
     //MATIX: el nombre de la clase me marca error, no entiendo por qué
     Controladora control;
    
     int dniCliente;
     
-    public InfoCliente(int dniCliente) {
+    public infoCliente(int dniCliente) {
         initComponents();
         this.dniCliente = dniCliente;
         control = new Controladora();

@@ -38,11 +38,13 @@ public class ControladoraPersistencia {
         insidenteJpa.create(insidente);
     }
 
-    public void EliminarTecnico(int idTecnico) {
+    public boolean EliminarTecnico(int idTecnico) {
         try {
             tecnicoJpa.destroy(idTecnico);
+            return true;
         } catch (NonexistentEntityException ex) {
             Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
         }
     }
     

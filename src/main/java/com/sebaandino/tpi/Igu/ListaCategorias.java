@@ -33,7 +33,6 @@ public class ListaCategorias extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        btnEliminar = new javax.swing.JButton();
         btnEditar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblInsidentes = new javax.swing.JTable();
@@ -43,13 +42,6 @@ public class ListaCategorias extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
         jLabel1.setText("Listado de Categorias:");
-
-        btnEliminar.setText("Eliminar");
-        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarActionPerformed(evt);
-            }
-        });
 
         btnEditar.setText("Editar");
         btnEditar.addActionListener(new java.awt.event.ActionListener() {
@@ -86,11 +78,9 @@ public class ListaCategorias extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnEliminar)
-                            .addComponent(btnEditar)))
+                        .addComponent(btnEditar))
                     .addComponent(jLabel1))
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -102,9 +92,7 @@ public class ListaCategorias extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(48, 48, 48)
-                        .addComponent(btnEliminar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(87, 87, 87)
                         .addComponent(btnEditar)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnAtras)
@@ -129,19 +117,6 @@ public class ListaCategorias extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-//POSIBLEMENTE DEJE DE FUNCIONAR. BORRAR COMENTARIO CASO CONTARIO
-        //si la tabla no esta vacia
-        if(tblInsidentes.getRowCount() > 0 ){
-            //si no hay ninguna fila seleccionada
-            if(tblInsidentes.getSelectedRow() != -1){
-                Long idCategoria = Long.parseLong((tblInsidentes.getValueAt(tblInsidentes.getSelectedRow(), 0)).toString());
-                control.eliminarCategoria(idCategoria);
-                cargarTabla();
-            }
-        }
-    }//GEN-LAST:event_btnEliminarActionPerformed
-
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         //IMPLEMENTAR
     }//GEN-LAST:event_btnEditarActionPerformed
@@ -154,7 +129,6 @@ public class ListaCategorias extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAtras;
     private javax.swing.JButton btnEditar;
-    private javax.swing.JButton btnEliminar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

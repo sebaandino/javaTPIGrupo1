@@ -122,17 +122,28 @@ public class ListaClientes extends javax.swing.JFrame {
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
 
         
-        //si la tabla no esta vacia
-        if(tblClientes.getRowCount() > 0 ){
-            //si no hay ninguna fila seleccionada
-            if(tblClientes.getSelectedRow() != -1){
+        //si la tabla esta vacia
+        if(tblClientes.getRowCount() < 0 ){
+            JOptionPaneUtil.mostrarMensaje("La trabla està vacia", JOptionPaneUtil.TipoMensaje.ERROR);
+            return;
+        }
+        //si no hay ninguna fila seleccionada
+        if(tblClientes.getSelectedRow() == -1){
+            JOptionPaneUtil.mostrarMensaje("No selecciono cliente a eliminar", JOptionPaneUtil.TipoMensaje.ERROR);
+            return;
+        }
+        
+                try{
                 int idCliente = (int) tblClientes.getValueAt(tblClientes.getSelectedRow(), 0);
                 control.eliminarCliente(idCliente);
+                JOptionPaneUtil.mostrarMensaje("Cliente eliminado", JOptionPaneUtil.TipoMensaje.INFORMATIVO);
+                }catch(Exception e){
+                JOptionPaneUtil.mostrarMensaje("No se puede eliminar este Cliente,tiene insidentes pendientes", JOptionPaneUtil.TipoMensaje.ERROR);
+                return;
+                }
                 cargarTabla();
-            }else{
-                JOptionPaneUtil.mostrarMensaje("No se selecciono ningun cliete para eliminar", JOptionPaneUtil.TipoMensaje.ERROR);
-            }
-        }
+        
+        
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed

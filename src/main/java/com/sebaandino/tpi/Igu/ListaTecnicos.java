@@ -125,17 +125,27 @@ public class ListaTecnicos extends javax.swing.JFrame {
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         
-        //si la tabla no esta vacia
-        if(tblTecnicos.getRowCount() > 0 ){
-        //si no hay ninguna fila seleccionada    
-            if(tblTecnicos.getSelectedRow() != -1){
-                
-                int id = (int) tblTecnicos.getValueAt(tblTecnicos.getSelectedRow(), 0);
-                control.EliminarTecnico(id);
-                
-                cargarTabla();
-            }
+        //si la tabla esta vacia
+        if(tblTecnicos.getRowCount() < 0 ){
+            JOptionPaneUtil.mostrarMensaje("La trabla està vacia", JOptionPaneUtil.TipoMensaje.ERROR);
+            return;
         }
+        //si no hay ninguna fila seleccionada
+        if(tblTecnicos.getSelectedRow() == -1){
+            JOptionPaneUtil.mostrarMensaje("No selecciono tecnico a eliminar", JOptionPaneUtil.TipoMensaje.ERROR);
+            return;
+        }
+        
+                try{
+                int idTecnico = (int) tblTecnicos.getValueAt(tblTecnicos.getSelectedRow(), 0);
+                control.EliminarTecnico(idTecnico);
+                JOptionPaneUtil.mostrarMensaje("Tecnico eliminado", JOptionPaneUtil.TipoMensaje.INFORMATIVO);
+                }catch(Exception e){
+                JOptionPaneUtil.mostrarMensaje("No se puede eliminar este Tecnico,tiene insidentes pendientes", JOptionPaneUtil.TipoMensaje.ERROR);
+                return;
+                }
+                cargarTabla();
+        
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
@@ -148,7 +158,7 @@ public class ListaTecnicos extends javax.swing.JFrame {
                 editarTecnico.setLocationRelativeTo(null);
                 this.dispose();
             } else {
-                JOptionPaneUtil.mostrarMensaje("No selecciono niingun cliente", JOptionPaneUtil.TipoMensaje.INFORMATIVO);
+                JOptionPaneUtil.mostrarMensaje("No selecciono ningun tecnico", JOptionPaneUtil.TipoMensaje.INFORMATIVO);
             }
         } else {
             JOptionPaneUtil.mostrarMensaje("No hay datos", JOptionPaneUtil.TipoMensaje.INFORMATIVO);

@@ -1,5 +1,6 @@
 com\sebaandino\tpi\Igu\EditarTecnico$4.class
 com\sebaandino\tpi\Igu\AltaCliente$4.class
+com\sebaandino\tpi\Igu\infoCliente.class
 com\sebaandino\tpi\Igu\ListaInsidenciasEntreFechas$1.class
 com\sebaandino\tpi\Igu\ListaInsidencias$1.class
 com\sebaandino\tpi\Persistencia\exceptions\PreexistingEntityException.class
@@ -9,13 +10,13 @@ com\sebaandino\tpi\Models\Insidente.class
 com\sebaandino\tpi\Igu\Menu$2.class
 com\sebaandino\tpi\Igu\EditarTecnico$1.class
 com\sebaandino\tpi\Igu\AltaInsidente$2.class
+com\sebaandino\tpi\Igu\infoCliente$1.class
 com\sebaandino\tpi\Igu\Menu$5.class
 com\sebaandino\tpi\Igu\AltaCliente$1.class
-com\sebaandino\tpi\Igu\InfoCliente.class
 com\sebaandino\tpi\Igu\AltaCategoria$3.class
+com\sebaandino\tpi\Igu\EditarIncidente$2.class
 com\sebaandino\tpi\Igu\EditarCliente$2.class
 com\sebaandino\tpi\Persistencia\InsidenteJpaController.class
-com\sebaandino\tpi\Igu\ListaCategorias$4.class
 com\sebaandino\tpi\Igu\Menu$12.class
 com\sebaandino\tpi\Igu\AltaTecnico$2.class
 com\sebaandino\tpi\Igu\ListaInsidenciasEntreFechas.class
@@ -47,12 +48,11 @@ com\sebaandino\tpi\Igu\AltaCategoria$2.class
 com\sebaandino\tpi\Igu\Menu$6.class
 com\sebaandino\tpi\Persistencia\exceptions\NonexistentEntityException.class
 com\sebaandino\tpi\Igu\AltaInsidente$3.class
-com\sebaandino\tpi\Igu\InfoCliente$3.class
 com\sebaandino\tpi\Igu\AltaTecnico$4.class
 com\sebaandino\tpi\Models\Cliente_.class
 com\sebaandino\tpi\Igu\Menu$10.class
+com\sebaandino\tpi\Igu\EditarIncidente$1.class
 com\sebaandino\tpi\Igu\ListaInsidencias$5.class
-com\sebaandino\tpi\Igu\InfoCliente$2.class
 com\sebaandino\tpi\Igu\ListaTecnicos$4.class
 com\sebaandino\tpi\Igu\EditarCliente$1.class
 com\sebaandino\tpi\Persistencia\exceptions\IllegalOrphanException.class
@@ -63,6 +63,7 @@ com\sebaandino\tpi\Igu\AltaTecnico$1.class
 com\sebaandino\tpi\Igu\Menu$4.class
 com\sebaandino\tpi\Igu\ListaTecnicos$1.class
 com\sebaandino\tpi\Igu\AltaCliente$5.class
+com\sebaandino\tpi\Igu\EditarIncidente.class
 com\sebaandino\tpi\Igu\ListaInsidenciasEntreFechas$2.class
 com\sebaandino\tpi\Igu\AltaInsidente$1.class
 com\sebaandino\tpi\Igu\Menu$1.class
@@ -72,11 +73,12 @@ com\sebaandino\tpi\Persistencia\ClienteJpaController.class
 com\sebaandino\tpi\Persistencia\TecnicoJpaController.class
 com\sebaandino\tpi\Igu\ListaInsidenciasEntreFechas$5.class
 com\sebaandino\tpi\Igu\ListaInsidencias$2.class
+com\sebaandino\tpi\Igu\infoCliente$2.class
 com\sebaandino\tpi\Igu\EditarTecnico$2.class
 com\sebaandino\tpi\Igu\ListaInsidencias$3.class
+com\sebaandino\tpi\Igu\infoCliente$3.class
 com\sebaandino\tpi\Igu\ListaClientes$5.class
 com\sebaandino\tpi\Igu\Menu$3.class
-com\sebaandino\tpi\Igu\InfoCliente$1.class
 com\sebaandino\tpi\Igu\ListaCategorias$1.class
 com\sebaandino\tpi\Models\Insidente_.class
 com\sebaandino\tpi\Models\Tecnico_.class
@@ -93,3 +95,4 @@ com\sebaandino\tpi\Utils\JOptionPaneUtil$1.class
 com\sebaandino\tpi\TPI.class
 com\sebaandino\tpi\Igu\ListaInsidenciasEntreFechas$3.class
 com\sebaandino\tpi\Igu\EditarCliente.class
+com\sebaandino\tpi\Igu\EditarIncidente$3.class
